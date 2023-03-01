@@ -1,0 +1,47 @@
+// On définit un tableau vide
+let array = []; 
+
+// Fonction pour tri par insertion
+function insertionSort(arr) { 
+
+    // Pour tous les éléments dans le tableau, à partir du deuxième
+    for (let i = 1; i < arr.length; i++) { 
+        let key = arr[i]; 
+        let j = i - 1; 
+
+        // On compare l'élément courant avec tous les éléments du tableau précédent
+        // Déplacer tous les éléments qui sont plus grands que le 'élément courant, dans la position du plus grand numéro d'index. 
+        while (j >= 0 && arr[j] > key) { 
+            arr[j + 1] = arr[j]; 
+            j = j - 1; 
+        }
+        arr[j + 1] = key; 
+    } 
+    return arr; 
+} 
+  
+ // Cette fonction prend un tableau et le trie par insertion
+let sortedArray = insertionSort(array); 
+
+// Affiche le nouveau tableau trié
+console.log(sortedArray);
+// Fonction pour afficher le tableau 
+function printArray(arr) { 
+    let result = "";
+    for (let i = 0; i < arr.length; i++) 
+        result += arr[i] + " "; 
+  
+    console.log(result); 
+} 
+  
+// Affiche le tableau trié
+printArray(sortedArray);
+
+// Test de la fonction de tri par insertion
+let arr = [5, 2, 4, 6, 1, 3]; 
+console.log("Tableau non trié :"); 
+printArray(arr); 
+
+sortedArray = insertionSort(arr); 
+console.log("Tableau trié :"); 
+printArray(sortedArray);
